@@ -33,6 +33,7 @@ public class Branch_Bounce_TSP_Main {
 	}
         else {
 	    JFileChooser chooser = new JFileChooser();
+	    chooser.setCurrentDirectory(new java.io.File("./src/brume_TrainingSets"));
             int response = chooser.showOpenDialog(null);
 	    if (response != JFileChooser.APPROVE_OPTION)
                 return;

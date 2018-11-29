@@ -1,0 +1,15 @@
+NAME : trainingProblem2
+COMMENT : 8 locations from Middlesex University
+TYPE : TSP
+DIMENSION : 8
+EDGE_WEIGHT_TYPE : EUC_2D
+NODE_COORD_SECTION
+1 38 20
+2 39 26
+3 40 25
+4 36 23
+5 38 13
+6 37 20
+7 41 9
+8 36 -5
+EOF
