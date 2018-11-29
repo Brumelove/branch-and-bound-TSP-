@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-public class Branch_Bounce_TSP_Main {
+public class Branch_Bound_TSP_Main {
 
     /**
      * @param args the command line arguments
@@ -31,7 +31,10 @@ public class Branch_Bounce_TSP_Main {
 	if (args.length > 0) {
             file = new File(args[0]);
 	}
-        else {
+	
+    else {
+    	// Select a File from the set directory using 
+        	
 	    JFileChooser chooser = new JFileChooser();
 	    chooser.setCurrentDirectory(new java.io.File("./src/brume_TrainingSets"));
             int response = chooser.showOpenDialog(null);
@@ -68,12 +71,12 @@ public class Branch_Bounce_TSP_Main {
 		alert("Error parsing header " + e);
 		System.exit(1);
 	    }
-        ArrayList<Branch_Bounce_City> cities = new ArrayList<Branch_Bounce_City>(dimension);
+        ArrayList<Branch_Bound_City> cities = new ArrayList<Branch_Bound_City>(dimension);
         try {
             String line;
             while ((line = reader.readLine()) != null && !line.equals("EOF")) {
 		String[] entry = line.split(" ");
-		cities.add(new Branch_Bounce_City(entry[0], Double.parseDouble(entry[1]), Double.parseDouble(entry[2])));
+		cities.add(new Branch_Bound_City(entry[0], Double.parseDouble(entry[1]), Double.parseDouble(entry[2])));
 	    }
             reader.close();
             
@@ -81,8 +84,8 @@ public class Branch_Bounce_TSP_Main {
 	        alert("Error parsing data " + e);
 		System.exit(1);
 	    }
-        Branch_Bounce_Time branch_bounce_time = new Branch_Bounce_Time();
-	Branch_Bounce_PathFinder bbp = new Branch_Bounce_PathFinder(cities);
+        Branch_Bound_Time branch_bounce_time = new Branch_Bound_Time();
+	Branch_Bound_PathFinder bbp = new Branch_Bound_PathFinder(cities);
 	branch_bounce_time.start();
 	int[] path = bbp.calculate();
 	branch_bounce_time.stop();
@@ -93,7 +96,7 @@ public class Branch_Bounce_TSP_Main {
 	}
         
         message += " ----> " + cities.get(path[0]).getName();
-	message += "\nCost: " + bbp.getCost();
+	message += "\nLength of the Path is ----->> " + bbp.getCost();
 	message += "\nTime: " + branch_bounce_time.getFormattedTime();
 	alert(message);
     }
