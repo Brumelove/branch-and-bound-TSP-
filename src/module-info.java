@@ -1,10 +1,7 @@
 /**
- * 
- */
-/**
  * @author brume
  *
  */
-module brume_Branch_Bounce_TSP {
+module brume_Branch_Bound_TSP {
 	requires java.desktop;
 }

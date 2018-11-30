@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"brume_TSP","l":"Branch_Bounce_TSP_Main"}]

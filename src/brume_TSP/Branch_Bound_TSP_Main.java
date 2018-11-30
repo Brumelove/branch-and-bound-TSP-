@@ -26,16 +26,14 @@ public class Branch_Bound_TSP_Main {
      */
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO Declare the file to be read
         File file;
 	if (args.length > 0) {
             file = new File(args[0]);
 	}
 	
     else {
-    	// Select a File from the set directory using 
-        	
-	    JFileChooser chooser = new JFileChooser();
+    	JFileChooser chooser = new JFileChooser();
 	    chooser.setCurrentDirectory(new java.io.File("./src/brume_TrainingSets"));
             int response = chooser.showOpenDialog(null);
 	    if (response != JFileChooser.APPROVE_OPTION)
