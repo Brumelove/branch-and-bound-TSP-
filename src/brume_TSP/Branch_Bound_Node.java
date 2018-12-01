@@ -12,7 +12,7 @@ package brume_TSP;
 
 public class Branch_Bound_Node {
 	/**
-	 * A single node in the tree of paths
+	 * A  node of the state space tree
 	 */
 
 	public Branch_Bound_Node parent;

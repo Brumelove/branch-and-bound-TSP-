@@ -19,6 +19,17 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+/**
+ * Solve Traveling Salesman problem using branch and bound
+ *
+ * https://www.techiedelight.com/travelling-salesman-problem-using-branch-and-bound/
+ *
+ * Further reading:
+ * - [AN ALGORITHM FOR THE TRAVELING SALESMAN PROBLEM](http://dspace.mit.edu/bitstream/handle/1721.1/46828/algorithmfortrav00litt.pdf)
+ * - [SOLVING THE TRAVELLING SALESMAN PROBLEM USING THE BRANCH AND BOUND METHOD](https://hrcak.srce.hr/file/236378)
+ *
+ */
+
 public class Branch_Bound_TSP_Main {
 
     /**
@@ -40,6 +51,7 @@ public class Branch_Bound_TSP_Main {
                 return;
             file = chooser.getSelectedFile();
 	}
+	// Reading the selected file 
         
         BufferedReader reader = null;
 	try {

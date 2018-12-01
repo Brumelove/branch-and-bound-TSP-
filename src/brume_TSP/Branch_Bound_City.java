@@ -13,7 +13,7 @@ package brume_TSP;
 import java.awt.geom.Point2D;
 
 /**
- * Branch_Bound_City class that represents a city by a point and a name
+ * Branch_Bound_City class that represents a city by its x and y coordinates
  */
 
 public class Branch_Bound_City extends Point2D.Double {
@@ -21,7 +21,7 @@ public class Branch_Bound_City extends Point2D.Double {
 	private String name;
 
 	/**
-	 * Constructs a city by point data and name
+	 * Constructs a city by point its x and y coordinates 
 	 *
 	 * @param name The city name
 	 * @param x    The x-coordinate
