@@ -1,7 +1,7 @@
 NAME : trainingProblem3
-COMMENT : 9 locations from Middlesex University
+COMMENT : 4 locations from Middlesex University
 TYPE : TSP
-DIMENSION : 9
+DIMENSION : 4
 EDGE_WEIGHT_TYPE : EUC_2D
 NODE_COORD_SECTION
 1 16 96
@@ -13,4 +13,5 @@ NODE_COORD_SECTION
 7 20 87
 8 17 16
 9 66 97
-EOF   
+EOF
+  

@@ -1,6 +1,5 @@
 NAME : trainingProblem1
 COMMENT : 4 locations from Middlesex University
-COMMENT : Derived from National Imagery and Mapping Agency data
 TYPE : TSP
 DIMENSION : 4
 EDGE_WEIGHT_TYPE : EUC_2D
