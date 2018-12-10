@@ -12,11 +12,11 @@ package brume_TSP;
 
 public class Branch_Bound_Node {
 	/**
-	 * A  node of the state space tree
+	 * A node of the state space tree
 	 */
 
 	public Branch_Bound_Node parent;
-	private double parent_cost;
+	private double costMatrix;
 	private double[][] distances;
 	private int[] active_set;
 	public int index;
@@ -25,17 +25,17 @@ public class Branch_Bound_Node {
 	 * Constructs a new Branch_Bound_Node
 	 *
 	 * 
-	 * @param parent      This node's parent
-	 * @param parent_cost The cost between these nodes
-	 * @param distances   The 2D array of distance between locations
-	 * @param active_set  The set of all points (including this node) that are being
-	 *                    calculated
-	 * @param index       The location index of this node
+	 * @param parent     This node's parent
+	 * @param costMatrix The cost between these nodes
+	 * @param distances  The 2D array of distance between locations
+	 * @param active_set The set of all points (including this node) that are being
+	 *                   calculated
+	 * @param index      The location index of this node
 	 */
-	public Branch_Bound_Node(Branch_Bound_Node parent, double parent_cost, double[][] distances, int[] active_set,
+	public Branch_Bound_Node(Branch_Bound_Node parent, double costMatrix, double[][] distances, int[] active_set,
 			int index) {
 		this.parent = parent;
-		this.parent_cost = parent_cost;
+		this.costMatrix = costMatrix;
 		this.distances = distances;
 		this.active_set = active_set;
 		this.index = index;
@@ -58,7 +58,10 @@ public class Branch_Bound_Node {
 	 */
 	public Branch_Bound_Node[] generateChildren() {
 		Branch_Bound_Node[] children = new Branch_Bound_Node[active_set.length - 1];
-
+		/**
+		 * -1 indicates no edge from row to column allowed, 1 indicates that edge from
+		 * row to column required, 0 indicates that edge from row to column allowed
+		 */
 		int[] new_set = new int[active_set.length - 1];
 		int i = 0;
 		for (int location : active_set) {
@@ -151,6 +154,6 @@ public class Branch_Bound_Node {
 		if (parent == null)
 			return 0;
 
-		return parent_cost + parent.getParentCost();
+		return costMatrix + parent.getParentCost();
 	}
 }
