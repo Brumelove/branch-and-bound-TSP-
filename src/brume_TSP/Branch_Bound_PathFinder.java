@@ -39,8 +39,8 @@ public class Branch_Bound_PathFinder {
 		for (int i = 0; i < distances.length; i++)
 			location_set.add(i);
 		best_cost = findGreedyCost(0, location_set, distances);
-
 		int[] active_set = new int[distances.length];
+
 		for (int i = 0; i < active_set.length; i++)
 			active_set[i] = i;
 		Branch_Bound_Node root = new Branch_Bound_Node(null, 0, distances, active_set, 0);
