@@ -14,8 +14,8 @@ package brume_TSP;
 
 /**
  * General class to time tasks
-*/
-public class Branch_Bound_Time {
+ */
+public class Branch_Bound_nanoTime {
     long startTime;
     long estimatedTime;
     public final static String[] units = { "μs", "ms", "s", "ks", "Ms" };
@@ -25,14 +25,14 @@ public class Branch_Bound_Time {
      */
     public void start() {
         startTime = System.nanoTime();
-       
+
     }
 
     /**
      * Stop the branch_bounce_time
      */
     public void stop() {
-    estimatedTime = System.nanoTime();
+        estimatedTime = System.nanoTime();
     }
 
     /**
@@ -50,13 +50,17 @@ public class Branch_Bound_Time {
      * @return Formatted time
      */
     public String getFormattedTime() {
-    	
+
         long time = getTime();
-        int unit = (int)((Math.log10(time) - 9 - 2) / 3);
-        if(unit > 2)
- 	    unit = 2;
-	else if(unit < -2)
-	    unit = -2;
-        return (time / Math.pow(10, unit * 3 + 9)) + units[unit + 1]; 
+        /**
+         * returns the base 10 log of the elapsed time the number 9 represent
+         * nanoseconds(100000000)
+         */
+        int unit = (int) ((Math.log10(time) - 9 - 2) / 3);
+        if (unit > 2)
+            unit = 2;
+        else if (unit < -2)
+            unit = -2;
+        return (time / Math.pow(10, unit * 3 + 9)) + units[unit + 1];
     }
 }
