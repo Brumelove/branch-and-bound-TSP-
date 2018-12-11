@@ -27,26 +27,31 @@ public class Branch_Bound_Node {
 	 * 
 	 * @param parent     This node's parent
 	 * @param costMatrix The cost between these nodes
-	 * @param distances  The 2D array of distance between locations
+	 * @param distances2 The distance between cities in 2D Euclidean plane that are
+	 *                   part of the TSP
 	 * @param active_set The set of all points (including this node) that are being
 	 *                   calculated
 	 * @param index      The location index of this node
 	 */
-	public Branch_Bound_Node(Branch_Bound_Node parent, double costMatrix, double[][] distances, int[] active_set,
+	public Branch_Bound_Node(Branch_Bound_Node parent, double costMatrix, double[][] distances2, int[] active_set,
 			int index) {
 		this.parent = parent;
 		this.costMatrix = costMatrix;
-		this.distances = distances;
+		this.distances = distances2;
 		this.active_set = active_set;
 		this.index = index;
 	}
 
 	/**
-	 * Check if this node is terminal
+	 * Check if this node has a child
 	 *
-	 * @return Whether or not the node is terminal
+	 * @return Whether or not the node has a child
 	 */
 	public boolean isTerminal() {
+		/**
+		 * -1 indicates no edge from row to column allowed, 1 indicates that edge from
+		 * row to column required, 0 indicates that edge from row to column allowed
+		 */
 		return active_set.length == 1;
 	}
 
@@ -58,10 +63,7 @@ public class Branch_Bound_Node {
 	 */
 	public Branch_Bound_Node[] generateChildren() {
 		Branch_Bound_Node[] children = new Branch_Bound_Node[active_set.length - 1];
-		/**
-		 * -1 indicates no edge from row to column allowed, 1 indicates that edge from
-		 * row to column required, 0 indicates that edge from row to column allowed
-		 */
+
 		int[] new_set = new int[active_set.length - 1];
 		int i = 0;
 		for (int location : active_set) {
@@ -106,6 +108,9 @@ public class Branch_Bound_Node {
 
 	/**
 	 * Get the lower bound cost of this node (minimum possible solution)
+	 * 
+	 * The lower bound is computed by adding up the euclidean distance between the
+	 * nodes in the path from root
 	 *
 	 * @return Lower bound cost
 	 */

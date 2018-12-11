@@ -19,9 +19,10 @@ import java.awt.geom.Point2D;
 public class Branch_Bound_City extends Point2D.Double {
 	private static final long serialVersionUID = 1L;
 	private String name;
+	public int yj;
 
 	/**
-	 * Constructs a city by point its x and y coordinates 
+	 * Constructs a city by point its x and y coordinates
 	 *
 	 * @param name The city name
 	 * @param x    The x-coordinate
