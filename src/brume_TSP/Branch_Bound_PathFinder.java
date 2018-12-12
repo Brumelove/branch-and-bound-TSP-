@@ -20,6 +20,7 @@ public class Branch_Bound_PathFinder {
 	 * Constructs a new Branch_Bound_PathFinder and initializes distances array
 	 *
 	 * @param cities An ArrayList of Branch_Bound_City
+	 * @return
 	 */
 	public Branch_Bound_PathFinder(ArrayList<Branch_Bound_City> cities) {
 		distances = new double[cities.size()][cities.size()];
@@ -69,7 +70,7 @@ public class Branch_Bound_PathFinder {
 	 *
 	 * @return The cost
 	 */
-	public double getCost() {
+	public double getPathLength() {
 		return best_cost;
 	}
 

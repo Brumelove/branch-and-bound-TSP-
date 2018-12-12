@@ -11,7 +11,6 @@ package brume_TSP;
  */
 
 import java.awt.GraphicsEnvironment;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -39,7 +38,7 @@ public class Branch_Bound_TSP_Main {
      */
 
     public static void main(String[] args) {
-        // TODO Declare the file to be read
+        // Declare the file to be read
         File file;
         if (args.length > 0) {
             file = new File(args[0]);
@@ -82,6 +81,7 @@ public class Branch_Bound_TSP_Main {
             alert("Error parsing header " + e);
             System.exit(1);
         }
+
         ArrayList<Branch_Bound_City> cities = new ArrayList<Branch_Bound_City>(dimension);
         try {
             String line;
@@ -105,20 +105,18 @@ public class Branch_Bound_TSP_Main {
 
         String message = cities.get(path[0]).getName();
         for (int i = 1; i < path.length; i++) {
-            message += " ----> " + cities.get(path[i]).getName();
+            message += " -> " + cities.get(path[i]).getName();
         }
 
-        message += " ----> " + cities.get(path[0]).getName();
-        message += "\nLength of the Path is ----->> " + bbp.getCost();
+        message += " -> " + cities.get(path[0]).getName();
+        message += "\nLength of the Path is" +" -> "+ bbp.getPathLength() + "m";
         message += "\nTime: " + branch_bounce_time.getFormattedTime();
         alert(message);
     }
 
     private static void alert(String message) {
-        if (GraphicsEnvironment.isHeadless())
-            System.out.println(message);
-        else
-            JOptionPane.showMessageDialog(null, message);
+        System.out.println(message);
+
     }
 
 }

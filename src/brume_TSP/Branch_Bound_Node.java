@@ -27,17 +27,17 @@ public class Branch_Bound_Node {
 	 * 
 	 * @param parent     This node's parent
 	 * @param costMatrix The cost between these nodes
-	 * @param distances2 The distance between cities in 2D Euclidean plane that are
+	 * @param distances  The distance between cities in 2D Euclidean plane that are
 	 *                   part of the TSP
 	 * @param active_set The set of all points (including this node) that are being
 	 *                   calculated
 	 * @param index      The location index of this node
 	 */
-	public Branch_Bound_Node(Branch_Bound_Node parent, double costMatrix, double[][] distances2, int[] active_set,
+	public Branch_Bound_Node(Branch_Bound_Node parent, double costMatrix, double[][] distances, int[] active_set,
 			int index) {
 		this.parent = parent;
 		this.costMatrix = costMatrix;
-		this.distances = distances2;
+		this.distances = distances;
 		this.active_set = active_set;
 		this.index = index;
 	}
@@ -58,7 +58,7 @@ public class Branch_Bound_Node {
 	/**
 	 * Generate and return this node's children
 	 *
-	 * @precondition Branch_Bound_Node is not terminal
+	 * @precondition Branch_Bound_Node doesn not have a child
 	 * @return Array of children
 	 */
 	public Branch_Bound_Node[] generateChildren() {

@@ -22,7 +22,7 @@ public class Branch_Bound_City extends Point2D.Double {
 	public int yj;
 
 	/**
-	 * Constructs a city by point its x and y coordinates
+	 * Constructs a city by its x and y coordinates
 	 *
 	 * @param name The city name
 	 * @param x    The x-coordinate
