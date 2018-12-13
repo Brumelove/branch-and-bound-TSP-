@@ -10,14 +10,12 @@ package brume_TSP;
  * @author brume
  */
 
-import java.awt.GraphicsEnvironment;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
 /**
  * Solve Traveling Salesman problem using branch and bound
@@ -62,9 +60,14 @@ public class Branch_Bound_TSP_Main {
             System.exit(1);
         }
         int dimension = 0;
-
+        
+        /**
+         * setting the header of each file in the TSP format
+         **/
+        
         try {
             String line;
+           
             while (!(line = reader.readLine()).equals("NODE_COORD_SECTION")) {
                 String[] entry = line.split(":", 1);
                 switch (entry[0].trim()) {
@@ -82,6 +85,7 @@ public class Branch_Bound_TSP_Main {
             System.exit(1);
         }
 
+        // setting the footer of each file in the TSP format
         ArrayList<Branch_Bound_City> cities = new ArrayList<Branch_Bound_City>(dimension);
         try {
             String line;
@@ -115,7 +119,7 @@ public class Branch_Bound_TSP_Main {
     }
 
     private static void alert(String message) {
-        System.out.println(message);
+        System.out.printf(message);
 
     }
 
