@@ -60,14 +60,14 @@ public class Branch_Bound_TSP_Main {
             System.exit(1);
         }
         int dimension = 0;
-        
+
         /**
          * setting the header of each file in the TSP format
          **/
-        
+
         try {
             String line;
-           
+
             while (!(line = reader.readLine()).equals("NODE_COORD_SECTION")) {
                 String[] entry = line.split(":", 1);
                 switch (entry[0].trim()) {
@@ -113,7 +113,7 @@ public class Branch_Bound_TSP_Main {
         }
 
         message += " -> " + cities.get(path[0]).getName();
-        message += "\nLength of the Path is" +" -> "+ bbp.getPathLength() + "m";
+        message += "\nLength of the Path is" + " -> " + bbp.getPathLength() + "m";
         message += "\nTime: " + branch_bounce_time.getFormattedTime();
         alert(message);
     }

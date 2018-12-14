@@ -26,8 +26,9 @@ public class Branch_Bound_PathFinder {
 		distances = new double[cities.size()][cities.size()];
 		for (int i = 0; i < cities.size(); i++) {
 			for (int j = 0; j < cities.size(); j++)
-				distances[i][j] += getEuclideanDistance(cities.get(i), (cities.get(j)));
+				distances[i][j] += getEuclideanDistance(cities.get(i), cities.get(j));
 		}
+		return;
 	}
 
 	/**
@@ -38,10 +39,10 @@ public class Branch_Bound_PathFinder {
 	 * @return distance the distance between the points
 	 */
 	private double getEuclideanDistance(Branch_Bound_City branch_Bound_City, Branch_Bound_City branch_Bound_City2) {
-		double temp1 = Math.pow((branch_Bound_City.x - branch_Bound_City2.x), 2);
-		double temp2 = Math.pow((branch_Bound_City.y - branch_Bound_City2.y), 2);
-		double distances = Math.sqrt(temp1 + temp2);
-		return distances;
+		double temp1 = Math.pow((branch_Bound_City2.y - branch_Bound_City.y), 2);
+		double temp2 = Math.pow((branch_Bound_City2.x - branch_Bound_City.x), 2);
+		double distance = Math.sqrt(temp1 + temp2);
+		return distance;
 
 	}
 
